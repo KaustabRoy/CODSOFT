@@ -246,7 +246,7 @@ class TodoApp(Tk):
         try:
             self.todo_display_listbox.itemconfig(self.todo_display_listbox.curselection(), fg = "#b7b3bd")
             self.todo_display_listbox.selection_clear(0, END)
-        except Exception as e:
+        except Exception:
             print(colored(f"CROSS EVENT ERROR : empty task list ", "light_yellow"))
             msg.showwarning(title = "WARNING", message = "Task list is empty.")
 
@@ -296,7 +296,7 @@ class TodoApp(Tk):
         edit_task_popup_window = Toplevel(self)
         edit_task_popup_window.geometry("700x215")
         edit_task_popup_window.resizable(False, False)
-        edit_task_popup_window.title(f"Edit task {item_number}")
+        edit_task_popup_window.title(f"Edit task {item_number+1}")
         label = Label(edit_task_popup_window, text = f"EDIT TASK:\n{editable_task}", fg = "#1d3b64", font = ("Helvetica", 16))
         label.pack()
         task = Entry(edit_task_popup_window, width = 60, font = ("Helvetica", 14), fg = "#1d3b64")
